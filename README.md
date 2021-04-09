@@ -1,105 +1,54 @@
+![Screenshot of Victor Videos app](/screenshot.png)
 
+# Performance Workshop
 
-# VictorVideos
+Presented by [Jeff Cross](https://twitter.com/jeffbcross) of [Nrwl](https://nrwl.io) at ng-conf 2021.
 
-This project was generated using [Nx](https://nx.dev).
+We'll be looking at an app that resembles real-world performance issues, and will cover 4 tools to identify the root causes:
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+- **Chrome Devtools**:
+  - **Lighthouse** _for measuring startup performance_
+  - **Network** _tab to understand how resources are being loaded_
+  - **Performance** _tab to see full view of app performance_
+  - **Code Coverage** _to see what CSS and JS aren't being used_
+- **Source Map Explorer** _to see what's inside bundles_
 
-🔎 **Powerful, Extensible Dev Tools**
+## Running the App
 
-## Quick Start & Documentation
+To run the app with production configuration, follow these steps:
 
-[Nx Documentation](https://nx.dev/angular)
+1. `npm install`
+1. `npx nx build victor-videos --prod`
+1. `npx nx build prod-server --prod`
+1. `node dist/apps/prod-server/main.js`
+1. Open `localhost:3333`
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+## Resources
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+The UAAO doc created during the workshop can be viewed here: https://docs.google.com/document/d/1JCC9SuKSgQ3nDltLrJCmTUtWrLJRvWWIX0FdywvNl88/edit?usp=sharing
 
-## Adding capabilities to your workspace
+To learn more about the UAAO process, and see a more thorough example, go to https://go.nrwl.io/uaao.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Become a Performance Expert
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+Here are some of my favorite resources that I refer back to often.
 
-Below are our core plugins:
+### High Performance Browser Networking
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+This book is the canonical source for all things related to internet plumbing, written and updated by someone who's at the forefront of Internet standards, Ilya Grigorik (Google). And it's FREE on the web here: https://hpbn.co/
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+### Critical Rendering Path
 
-## Generate an application
+Speaking of Ilya Grigorik, if you want to understand everything that goes into rendering a page, this article by Ilya Grigorik on Chrome Web Fundamentals is your friend: https://developers.google.com/web/fundamentals/performance/critical-rendering-path
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+### Blog: JavaScript Loading Priorities in Chrome
 
-> You can use any of the plugins above to generate applications as well.
+This is my cheat sheet for remembering the nuanced behaviors of `<link>` and `<script>` tags with different attributes applied. Written by none other than Addy Osmani (Google) https://addyosmani.com/blog/script-priorities/
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+### Twitter Thread from Ivan Akulov
 
-## Generate a library
+This Twitter thread includes over 50 insightful Web performance tips. I learned a few things! https://twitter.com/iamakulov/status/1275769142809944064
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+### Demystifying Speed Tooling
 
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@victor-videos/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+The video's almost 2 years old, but still a good overview of Chrome's performance tools, straight from the people working on the tools (Paul Irish and Elizabeth Sweeny): https://www.youtube.com/watch?v=mLjxXPHuIJo
